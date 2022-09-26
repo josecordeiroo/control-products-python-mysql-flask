@@ -12,4 +12,16 @@
     <button type="submit">Cadastrar</button>
 </form>
 
+<br><br>
+
+{% for product in data %}
+        {{product.1}}
+        <form action="/delete/product/{{product.0}}" method="POST">
+            <button>Deletar</button>
+        </form>
+        <a href="/update/product/{{product.0}}">Atualizar</a>
+        <br><br><br>
+        {% else %}
+        Nao existem produtos cadastrados
+    {% endfor %}
 {% endblock %}
