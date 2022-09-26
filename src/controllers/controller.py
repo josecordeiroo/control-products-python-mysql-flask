@@ -1,5 +1,5 @@
 from flask.views import MethodView
 
-class OlaController(MethodView):
+class HelloController(MethodView):
     def get(self):
-        return "ola pipocas"
+        return "Hello World!"
