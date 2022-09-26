@@ -6,7 +6,7 @@ from src.db import mysql
 class IndexController(MethodView):
     def get(self):
         with mysql.cursor() as cur:
-            cur.execute("SELECT * FROM produtos")
+            cur.execute("SELECT * FROM products")
             data = cur.fetchall()
         return render_template('public/index.html', data=data)
 
@@ -15,11 +15,11 @@ class IndexController(MethodView):
         name = request.form['name']
         stock = request.form['stock']
         value = request.form['value']
-        category = request.form['category']
+        #category = request.form['category']
 
         with mysql.cursor() as cur:
-            cur.execute("INSERT INTO products values(%s, %s, %s, %s, %s,)",
-                        (code, name, stock, value, category))
+            cur.execute("INSERT INTO products(code, name, stock, value) VALUES (%s, %s, %s, %s)",
+                        (code, name, stock, value))
             cur.connection.commit()
             return redirect('/')
 
