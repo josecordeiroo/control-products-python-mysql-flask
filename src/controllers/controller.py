@@ -48,3 +48,7 @@ class UpdateProductController(MethodView):
             cur.execute("UPDATE products SET code = %s, name = %s, stock = %s, value = %s WHERE code = %s", (productCode, name, stock, value, code))
             cur.connection.commit()
             return redirect('/')
+
+class CategoriesController(MethodView):
+    def get():
+        return "esta e a pagina de categorias"
