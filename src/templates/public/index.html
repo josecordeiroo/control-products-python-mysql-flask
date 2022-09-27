@@ -2,12 +2,20 @@
 
 {% block content %}
 
+
 <form action="/" method="POST">
     <input type="number" name="code" placeholder="Codigo do produto">
     <input type="text" name="name" placeholder="Nome do produto">
     <input type="number" name="stock" placeholder="Disponibilidade">
     <input type="number" name="value" placeholder="Valor do produto">
-    <input type="text" name="category" placeholder="Categoria do produto">
+    <select name="category">
+        <option selected>Selecione uma categoria</option>
+        {% for categories in categories %}
+        <option value="{{categories.0}}">{{categories.1}}</option>
+        {% endfor %}
+    </select>
+
+
 
     <button type="submit">Cadastrar</button>
 </form>
